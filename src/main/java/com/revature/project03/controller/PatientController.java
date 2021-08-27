@@ -28,8 +28,8 @@ import com.revature.project03.repository.PatientRepository;
 public class PatientController {
 	@Autowired
 	private PatientRepository patientRepository;
-
-    @GetMapping("/")
+                                                       //http://localhost:9090/patient
+    @GetMapping("/patients")
     public List<Patient> getAllPatients() {
         return patientRepository.findAll();
     }
@@ -43,16 +43,18 @@ public class PatientController {
     }
     
     @PostMapping("/patients")
-    public Patient createPatient(@Valid @RequestBody Patient patient) {
+    public Patient createPatient(@Valid @RequestBody  Patient patient) {
         return patientRepository.save(patient);
     }
-
+         
     @PutMapping("/patients/{id}")
     public ResponseEntity<Patient> updatePatient(@PathVariable(value = "id") Integer patientId,
-         @Valid @RequestBody Patient patientDetails) throws ResourceNotFoundException {
+         @Valid  Patient patientDetails) throws ResourceNotFoundException {
         Patient patient = patientRepository.findById(patientId)
         .orElseThrow(() -> new ResourceNotFoundException("Patient not found for this id :: " + patientId));
-
+        
+        patient.setUserName(patientDetails.getUserName());
+        patient.setPassword(patientDetails.getPassword());
         patient.setEmail_id(patientDetails.getEmail_id());
         patient.setLastName(patientDetails.getLastName());
         patient.setFirstName(patientDetails.getFirstName());
