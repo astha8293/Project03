@@ -7,7 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
+//import javax.validation.constraints.Max;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +26,7 @@ public class Family {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Max(8)
+//	@Max(8)
 	private int family_id;
 	private String firstName;
 	private String lastName;
@@ -34,6 +36,7 @@ public class Family {
 	private String address;
 	private String email_id;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="p_id")
 	private Patient patient;
