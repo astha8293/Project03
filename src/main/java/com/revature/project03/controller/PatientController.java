@@ -56,20 +56,24 @@ public class PatientController {
         patient.setEmail_id(patientDetails.getEmail_id());
         patient.setLastName(patientDetails.getLastName());
         patient.setFirstName(patientDetails.getFirstName());
+        patient.setAge(patientDetails.getAge());
+        patient.setAddress(patientDetails.getAddress());
+        patient.setGender(patientDetails.getGender());
+        patient.setMobileNo(patientDetails.getMobileNo());
         final Patient updatedPatient = patientRepository.save(patient);
         return ResponseEntity.ok(updatedPatient);
     }
 
-//    @DeleteMapping("/patients/{id}")
-//    public Map<String, Boolean> deletePatient(@PathVariable(value = "id") Long PatientId)
-//         throws ResourceNotFoundException {
-//        Patient Patient = patientRepository.findById(PatientId)
-//       .orElseThrow(() -> new ResourceNotFoundException("Patient not found for this id :: " + PatientId));
-//
-//        patientRepository.delete(Patient);
-//        Map<String, Boolean> response = new HashMap<>();
-//        response.put("deleted", Boolean.TRUE);
-//        return response;
-//    }
+    @DeleteMapping("/patients/{id}")
+    public Map<String, Boolean> deletePatient(@PathVariable(value = "id") Integer patientId)
+         throws ResourceNotFoundException {
+        Patient patient = patientRepository.findById(patientId)
+       .orElseThrow(() -> new ResourceNotFoundException("Patient not found for this id :: " + patientId));
+
+        patientRepository.delete(patient);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return response;
+    }
 
 }
