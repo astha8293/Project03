@@ -7,6 +7,7 @@ import java.util.Map;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -142,16 +143,19 @@ public class PatientController {
     }
     
     @PostMapping("/book")
-    private Appointment bookAppointment()
-    {
-        final String uri = "http://localhost:9090/book/1/add";
+    private  String bookAppointment(@RequestBody Appointment appointment)
+    {    
+        final String uri = "http://localhost:9090/appointment/1/add";
+        HttpEntity<String> request = 
+        	      new HttpEntity<String>(appointment.toString());
 
         RestTemplate restTemplate = new RestTemplate();
-        Appointment result = restTemplate.getForObject(uri, Appointment.class);
+       String result = restTemplate.postForObject(uri,request, String.class);
         //Class obj=estTemplate.getForObject(uri, Class.class);
         
 		return result;
    }
+   //@PostMapping("/booking")
    
 
 }
