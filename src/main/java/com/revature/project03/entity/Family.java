@@ -30,7 +30,7 @@ public class Family {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Max(2)
+	@Max(8)
 	private int family_id;
 	private String firstName;
 	private String lastName;

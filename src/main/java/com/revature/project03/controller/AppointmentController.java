@@ -9,12 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.project03.entity.Appointment;
-import com.revature.project03.entity.Family;
-import com.revature.project03.entity.Patient;
 import com.revature.project03.exception.ResourceNotFoundException;
-import com.revature.project03.repository.AppointmentRepositry;
-import com.revature.project03.repository.FamilyRepository;
-import com.revature.project03.repository.PatientRepository;
+import com.revature.project03.services.AppointmentService;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -22,25 +18,12 @@ import com.revature.project03.repository.PatientRepository;
 public class AppointmentController {
 
 	@Autowired
-	private AppointmentRepositry appointmentRepositry;
-	
-	@Autowired
-	private PatientRepository patientRepository;
+	private AppointmentService appointmentService;
      
-//	@PostMapping("{patientid}/family/addmember")
-//	public Appointment createAppointment(@RequestBody Appointment appointment, @PathVariable(value = "patientid") Integer patientId) throws ResourceNotFoundException {
-//		Patient patient = patientRepository.findById(patientId)
-//		          .orElseThrow(() -> new ResourceNotFoundException("Patient not found for this id :: " + patientId));
-//		familyMember.setPatient(patient);
-//		return familyRepository.save(familyMember);
-//	}
-	
-	@PostMapping("/{patientid}/add")
+	@PostMapping("/{patientid}/book")
 	public Appointment createAppointment(@RequestBody Appointment appointment, @PathVariable(value = "patientid") Integer patientId) throws ResourceNotFoundException {
-		Patient patient = patientRepository.findById(patientId)
-		          .orElseThrow(() -> new ResourceNotFoundException("Patient not found for this id :: " + patientId));
-		appointment.setPatient(patient);
-		return appointmentRepositry.save(appointment);
+		
+		return appointmentService.createAppointment(appointment, patientId);
 	}
 	
 	

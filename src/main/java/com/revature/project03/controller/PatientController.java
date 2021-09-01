@@ -1,13 +1,8 @@
 package com.revature.project03.controller;
 
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,141 +12,80 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
-
-import com.revature.project03.entity.Appointment;
 import com.revature.project03.entity.Family;
 import com.revature.project03.entity.Patient;
 import com.revature.project03.exception.ResourceNotFoundException;
-import com.revature.project03.repository.FamilyRepository;
-import com.revature.project03.repository.PatientRepository;
+import com.revature.project03.services.PatientService;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/patient")
 
 public class PatientController {
+	
 	@Autowired
-	private PatientRepository patientRepository;
-	@Autowired
-	private FamilyRepository familyRepository;
+	private PatientService patientService;
+	
 
 	
 
 	@GetMapping("/family/{id}")
-	public ResponseEntity<Family> getFamilyMemberById(@PathVariable(value = "id") Integer familyMemberId)
-			throws ResourceNotFoundException {
-		Family familyMember = familyRepository.findById(familyMemberId)
-				.orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found for this id :: " + familyMemberId));
-		return ResponseEntity.ok().body(familyMember);
+	public  Family getFamilyMemberById(@PathVariable(value = "id") Integer familyMemberId) throws ResourceNotFoundException
+	{
+		return patientService.getFamilyMemberById(familyMemberId);
 	}
 
 	@PostMapping("{patientid}/family/addmember")
 	public Family createFamilyMember(@RequestBody Family familyMember, @PathVariable(value = "patientid") Integer patientId) throws ResourceNotFoundException {
-		Patient patient = patientRepository.findById(patientId)
-		          .orElseThrow(() -> new ResourceNotFoundException("Patient not found for this id :: " + patientId));
-		familyMember.setPatient(patient);
-		return familyRepository.save(familyMember);
+		
+		return patientService.createFamilyMember(familyMember, patientId);
 	}
 
 	@PutMapping("/family/{id}")
-	public ResponseEntity<Family> updateFamilyMember(@PathVariable(value = "id") Integer familyMemberId,
+	public Family updateFamilyMember(@PathVariable(value = "id") Integer familyMemberId,
 			@RequestBody Family familyMemberDetails) throws ResourceNotFoundException {
-		Family familyMember =familyRepository.findById(familyMemberId)
-				.orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found for this id :: " + familyMemberId));
 
-		familyMember.setEmail_id(familyMemberDetails.getEmail_id());
-		familyMember.setLastName(familyMemberDetails.getLastName());
-		familyMember.setFirstName(familyMemberDetails.getFirstName());
-		familyMember.setAge(familyMemberDetails.getAge());
-		familyMember.setAddress(familyMemberDetails.getAddress());
-		familyMember.setMobileNo(familyMemberDetails.getMobileNo());
-
-		final Family updatedFamilyMember = familyRepository.save(familyMember);
-		return ResponseEntity.ok(updatedFamilyMember);
+		return patientService.updateFamilyMember(familyMemberId, familyMemberDetails);
 	}
+	
 	@DeleteMapping("/family/{id}")
-	public Map<String, Boolean> deleteFamilyMember(@PathVariable(value = "id") Integer familyMemberId)
+	public void deleteFamilyMember(@PathVariable(value = "id") Integer familyMemberId)
 			throws ResourceNotFoundException {
-		Family famiyMember = familyRepository.findById(familyMemberId)
-				.orElseThrow(() -> new ResourceNotFoundException("FamilyMember not found for this id :: " + familyMemberId));
-
-		familyRepository.delete(famiyMember);
-		Map<String, Boolean> response = new HashMap<>();
-		response.put("deleted", Boolean.TRUE);
-		return response;
+		
+		patientService.deleteFamilyMember(familyMemberId);
 	}
                                                        //http://localhost:9090/patient
     @GetMapping("/patients")
     public List<Patient> getAllPatients() {
-        return patientRepository.findAll();
+        return patientService.getAllPatients();
     }
    
-    @GetMapping("/patient/{id}")
-    public ResponseEntity<Patient> getPatientById(@PathVariable(value = "id") Integer patientId)
+    @GetMapping("/{id}")
+    public Patient getPatientById(@PathVariable(value = "id") Integer patientId)
         throws ResourceNotFoundException {
-        Patient patient = patientRepository.findById(patientId)
-          .orElseThrow(() -> new ResourceNotFoundException("Patient not found for this id :: " + patientId));
-        return ResponseEntity.ok().body(patient);
+        
+        return patientService.getPatientById(patientId);
     }
     
-    @PostMapping("/patients")
+    @PostMapping("/add")
     public Patient createPatient(@RequestBody  Patient patient) {
-        return patientRepository.save(patient);
+        return patientService.createPatient(patient);
     }
          
     @PutMapping("/patient/{id}")
-    public ResponseEntity<Patient> updatePatient(@PathVariable(value = "id") Integer patientId,
+    public Patient updatePatient(@PathVariable(value = "id") Integer patientId,
          Patient patientDetails) throws ResourceNotFoundException {
-        Patient patient = patientRepository.findById(patientId)
-        .orElseThrow(() -> new ResourceNotFoundException("Patient not found for this id :: " + patientId));
-        
-        patient.setUserName(patientDetails.getUserName());
-        patient.setPassword(patientDetails.getPassword());
-        patient.setEmail_id(patientDetails.getEmail_id());
-        patient.setLastName(patientDetails.getLastName());
-        patient.setFirstName(patientDetails.getFirstName());
-        patient.setAge(patientDetails.getAge());
-        patient.setAddress(patientDetails.getAddress());
-        patient.setMobileNo(patientDetails.getMobileNo());
-        final Patient updatedPatient = patientRepository.save(patient);
-        return ResponseEntity.ok(updatedPatient);
+       
+        return patientService.updatePatient(patientId, patientDetails);
     }
 
     @DeleteMapping("/patient/{id}")
-    public Map<String, Boolean> deletePatient(@PathVariable(value = "id") Integer patientId)
+    public void deletePatient(@PathVariable(value = "id") Integer patientId)
          throws ResourceNotFoundException {
-        Patient patient = patientRepository.findById(patientId)
-       .orElseThrow(() -> new ResourceNotFoundException("Patient not found for this id :: " + patientId));
-
-        patientRepository.delete(patient);
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("deleted", Boolean.TRUE);
-        return response;
+         
+    	patientService.deletePatient(patientId);
     }
     
-    @GetMapping("/check")
-    private String getTest()
-    {
-        final String uri = "http://localhost:9090/test/name";
-
-        RestTemplate restTemplate = new RestTemplate();
-        String result = restTemplate.getForObject(uri, String.class);
-        //Class obj=estTemplate.getForObject(uri, Class.class);
-        
-		return result;
-    }
-    
-    @PostMapping("/book")
-    private Appointment bookAppointment()
-    {
-        final String uri = "http://localhost:9090/book/1/add";
-
-        RestTemplate restTemplate = new RestTemplate();
-        Appointment result = restTemplate.getForObject(uri, Appointment.class);
-        //Class obj=estTemplate.getForObject(uri, Class.class);
-        
-		return result;
-   }
+   
    
 
 }
