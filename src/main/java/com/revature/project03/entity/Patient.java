@@ -31,7 +31,6 @@ public class Patient {
 	private String firstName;
 	private String lastName;
 	private int age;
-	private String gender;
 	private String mobileNo;
 	private String address;
 	private String email_id;

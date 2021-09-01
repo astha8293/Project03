@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.revature.project03.entity.Family;
 import com.revature.project03.entity.Patient;
@@ -62,7 +63,6 @@ public class PatientController {
 		familyMember.setFirstName(familyMemberDetails.getFirstName());
 		familyMember.setAge(familyMemberDetails.getAge());
 		familyMember.setAddress(familyMemberDetails.getAddress());
-		familyMember.setGender(familyMemberDetails.getGender());
 		familyMember.setMobileNo(familyMemberDetails.getMobileNo());
 
 		final Family updatedFamilyMember = familyRepository.save(familyMember);
@@ -111,7 +111,6 @@ public class PatientController {
         patient.setFirstName(patientDetails.getFirstName());
         patient.setAge(patientDetails.getAge());
         patient.setAddress(patientDetails.getAddress());
-        patient.setGender(patientDetails.getGender());
         patient.setMobileNo(patientDetails.getMobileNo());
         final Patient updatedPatient = patientRepository.save(patient);
         return ResponseEntity.ok(updatedPatient);
@@ -127,6 +126,18 @@ public class PatientController {
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return response;
+    }
+    
+    @GetMapping("/check")
+    private String getTest()
+    {
+        final String uri = "http://localhost:9090/test/name";
+
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.getForObject(uri, String.class);
+        //Class obj=estTemplate.getForObject(uri, Class.class);
+        
+		return result;
     }
     
    
