@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.revature.project03.entity.Appointment;
 import com.revature.project03.entity.Family;
 import com.revature.project03.entity.Patient;
 import com.revature.project03.exception.ResourceNotFoundException;
@@ -140,6 +141,17 @@ public class PatientController {
 		return result;
     }
     
+    @PostMapping("/book")
+    private Appointment bookAppointment()
+    {
+        final String uri = "http://localhost:9090/book/1/add";
+
+        RestTemplate restTemplate = new RestTemplate();
+        Appointment result = restTemplate.getForObject(uri, Appointment.class);
+        //Class obj=estTemplate.getForObject(uri, Class.class);
+        
+		return result;
+   }
    
 
 }

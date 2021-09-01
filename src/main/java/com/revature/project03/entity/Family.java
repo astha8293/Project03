@@ -1,13 +1,17 @@
 package com.revature.project03.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 //import javax.validation.constraints.Max;
+import javax.validation.constraints.Max;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,7 +30,7 @@ public class Family {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-//	@Max(8)
+	@Max(2)
 	private int family_id;
 	private String firstName;
 	private String lastName;
@@ -39,4 +43,10 @@ public class Family {
 	@ManyToOne
 	@JoinColumn(name="p_id")
 	private Patient patient;
+	
+	@JsonIgnore
+	@OneToMany
+	@JoinColumn(name="app_id")
+	private List<Appointment> appointment;
+	
 }
