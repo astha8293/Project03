@@ -19,12 +19,10 @@ public class AppointmentController {
 
 	@Autowired
 	private AppointmentService appointmentService;
-     
+    
 	@PostMapping("/{patientid}/book")
 	public Appointment createAppointment(@RequestBody Appointment appointment, @PathVariable(value = "patientid") Integer patientId) throws ResourceNotFoundException {
 		
 		return appointmentService.createAppointment(appointment, patientId);
 	}
-	
-	
 }
