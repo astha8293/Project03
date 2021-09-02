@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,9 +37,11 @@ public class Patient {
 	private String address;
 	private String email_id;
 	
+	@JsonIgnore
 	@OneToMany(cascade=CascadeType.ALL, mappedBy = "patient")
 	private List<Family> members=new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToMany(cascade=CascadeType.ALL, mappedBy = "patient")
 	private List<Appointment> appointment=new ArrayList<>();
 

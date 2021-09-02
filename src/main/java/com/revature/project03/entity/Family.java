@@ -1,7 +1,9 @@
 package com.revature.project03.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -45,8 +47,7 @@ public class Family {
 	private Patient patient;
 	
 	@JsonIgnore
-	@OneToMany
-	@JoinColumn(name="app_id")
-	private List<Appointment> appointment;
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "member")
+	private List<Appointment> appointment=new ArrayList<>();
 	
 }
