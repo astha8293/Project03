@@ -37,6 +37,9 @@ public class Patient {
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy = "patient")
 	private List<Family> members=new ArrayList<>();
+	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "patient")
+	private List<Appointment> appointment=new ArrayList<>();
 
 
 	
