@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 //import javax.validation.constraints.Max;
 import javax.validation.constraints.Max;
@@ -31,8 +32,8 @@ import lombok.ToString;
 public class Family {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Max(8)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "family_generator")
+	@SequenceGenerator(name="family_generator", sequenceName = "family_seq", allocationSize = 8)
 	private int family_id;
 	private String firstName;
 	private String lastName;
