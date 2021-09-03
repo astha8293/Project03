@@ -5,7 +5,7 @@ pipeline {
     stage('Checkout') {
       steps {
         // Get some code from a GitHub repository
-        git branch: "demo", url: 'https://github.com/astha8293/Project03.git'
+        git branch: "demo1", url: 'https://github.com/astha8293/Project03.git'
       }
     }
         stage('Build') {
