@@ -28,6 +28,7 @@ import javax.persistence.Table;
 
 import org.hibernate.id.enhanced.SequenceStyleGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.revature.project03.model.DoctorAvailability;
 
 
@@ -53,15 +54,15 @@ public class Doctor {
 	@Embedded
 	private DoctorAvailability doctorAvailability;
 	private String password;
-	
-	
-	 @ManyToMany(mappedBy = "doctors")
-	    private Set<Patient> patients = new HashSet<>();
-	 
-	 @ManyToMany(mappedBy = "doctors")
-	    private Set<Family> families = new HashSet<>();
-	 
-	 @OneToMany(cascade=CascadeType.ALL, mappedBy = "doctor")
+//	
+//	 @JsonIgnore
+//	 @ManyToMany(mappedBy = "doctors")
+//	    private Set<Patient> patients = new HashSet<>();
+//	 @JsonIgnore
+//	 @ManyToMany(mappedBy = "doctors")
+//	    private Set<Family> families = new HashSet<>();
+	 @JsonIgnore
+	 @OneToMany(cascade=CascadeType.ALL,mappedBy = "doctor")
 		private List<Appointment> appointment=new ArrayList<>();
 	
 	

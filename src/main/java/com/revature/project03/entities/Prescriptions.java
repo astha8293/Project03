@@ -40,4 +40,5 @@ public class Prescriptions {
 //	@ManyToOne
 //	@JoinColumn(name = "doctorFees", referencedColumnName = "doctorFees")
 	private int doctorFees;
+	private int appointmentId;
 }

@@ -29,9 +29,10 @@ public class AppointmentService {
 	
 	public Appointment createAppointment(Appointment appointment, int patientId) throws ResourceNotFoundException {
 		Patient patient =patientservice.getPatientById(patientId);
-		Doctor currDoc = appointment.getDoctor();
-//		Doctor doctor = doctorService.getDoctorById(currDoc.getDoctorId());
-		appointment.setDoctor(currDoc);
+		//Doctor currDoc = appointment.getDoctor();
+		//Doctor doctor = doctorService.getDoctorById(currDoc.getDoctorId());
+		System.out.println("currDoc id:"+appointment.getDoctor().getDoctorId());
+		//appointment.setDoctor(currDoc);
 		appointment.setPatient(patient);
 		return appointmentRepository.save(appointment);
 	}

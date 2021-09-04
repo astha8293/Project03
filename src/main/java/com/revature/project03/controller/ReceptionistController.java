@@ -16,12 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.project03.entities.Appointment;
+import com.revature.project03.entities.DoctorLeave;
 import com.revature.project03.entities.LoginRoute;
 import com.revature.project03.entities.Receptionist;
 import com.revature.project03.exception.ResourceNotFoundException;
 import com.revature.project03.model.DateFetch;
 import com.revature.project03.model.ReceptionistDto;
+import com.revature.project03.repository.AppointmentRepository;
 import com.revature.project03.service.AppointmentService;
+import com.revature.project03.service.DoctorLeaveService;
 import com.revature.project03.service.LoginRouteService;
 import com.revature.project03.service.ReceptionistService;
 
@@ -40,7 +43,11 @@ public class ReceptionistController {
 	@Autowired
 	private LoginRouteService loginRouteService;
 	@Autowired
-	private AppointmentService appointmentService;	
+	private AppointmentService appointmentService;
+	@Autowired
+	private DoctorLeaveService doctorLeaveService;
+	@Autowired
+	private AppointmentRepository appointmentRepository;
 	public String generateRandomPassword() {
 	    PasswordGenerator gen = new PasswordGenerator();
 	    org.passay.CharacterData lowerCaseChars = EnglishCharacterData.LowerCase;
@@ -95,10 +102,27 @@ public class ReceptionistController {
 		 return appointmentService.confirmAppointment(appointment, patientId);
 	 }
 	 
-	 @PostMapping("/cancelAppointment")
+	 @PostMapping("/cancelAllAppointments")
 	 public List<Appointment> cancelAllAppointments(@RequestBody Appointment appointment){
+		 List<Appointment> appointments = appointmentService.getAppointmentByDate(appointment);
+		 List<DoctorLeave> doctorLeaves = doctorLeaveService.findbydates(appointment.getApplicationDate());
+		 for(DoctorLeave doctorL:doctorLeaves) {
+			 for(Appointment appointmentL:appointments) {
+				 if(doctorL.getLeaveDate().compareTo(appointmentL.getApplicationDate())== 0) {
+					 appointmentL.setApplicationDate(appointmentL.getApplicationDate());
+					 appointmentL.setApplicationId(appointmentL.getApplicationId());
+					 appointmentL.setDoctor(appointmentL.getDoctor());
+					 appointmentL.setMember(appointmentL.getMember());
+					 appointmentL.setPurpose(appointmentL.getPurpose());
+					 appointmentL.setAvailability("cancelled");
+					 appointmentRepository.save(appointmentL);
+				 }
+			 }
+		 }
 		 
-		return null;
+		 
+		 
+		return appointments;
 		 
 	 }
 
