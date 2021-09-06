@@ -152,3 +152,43 @@ Caused by: org.hibernate.MappingException: The increment size of the [family_seq
 2021-09-06 10:19:43,645 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9091 (http) with context path ''
 2021-09-06 10:19:43,671 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started Project03Application in 56.44 seconds (JVM running for 58.427)
 2021-09-06 10:19:54,663 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9091-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-06 10:19:54,664 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9091-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-09-06 10:19:54,668 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9091-exec-1] Completed initialization in 3 ms
+2021-09-06 10:46:10,564 WARN com.zaxxer.hikari.pool.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m30s885ms807µs).
+2021-09-06 11:08:28,080 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(38)-127.0.0.1] Application shutdown requested.
+2021-09-06 11:08:28,122 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [RMI TCP Connection(38)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-09-06 11:08:28,125 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(38)-127.0.0.1] HikariPool-1 - Shutdown initiated...
+2021-09-06 11:08:28,129 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(38)-127.0.0.1] HikariPool-1 - Shutdown completed.
+2021-09-06 17:23:18,255 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting Project03Application using Java 15.0.2 on Srivan with PID 25772 (C:\Users\sriva\Documents\Project-03\Project03\target\classes started by sriva in C:\Users\sriva\Documents\Project-03\Project03)
+2021-09-06 17:23:18,279 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-06 17:23:18,390 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-06 17:23:18,391 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-06 17:23:19,967 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-06 17:23:20,206 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 220 ms. Found 10 JPA repository interfaces.
+2021-09-06 17:23:21,584 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9091 (http)
+2021-09-06 17:23:21,604 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9091"]
+2021-09-06 17:23:21,605 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-06 17:23:21,606 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-06 17:23:21,870 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-06 17:23:21,871 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 3478 ms
+2021-09-06 17:23:22,346 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-06 17:23:22,526 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-06 17:23:22,990 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-06 17:23:23,302 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-09-06 17:23:27,408 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-09-06 17:23:27,464 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-09-06 17:24:19,184 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-06 17:24:19,225 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-06 17:24:21,070 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-06 17:24:21,735 WARN org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration [restartedMain] Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-09-06 17:24:22,018 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-09-06 17:24:22,069 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9091"]
+2021-09-06 17:24:22,152 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9091 (http) with context path ''
+2021-09-06 17:24:22,182 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started Project03Application in 65.101 seconds (JVM running for 67.638)
+2021-09-06 17:24:29,399 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9091-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-06 17:24:29,400 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9091-exec-2] Initializing Servlet 'dispatcherServlet'
+2021-09-06 17:24:29,404 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9091-exec-2] Completed initialization in 3 ms
+2021-09-06 18:03:11,628 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(45)-127.0.0.1] Application shutdown requested.
+2021-09-06 18:03:11,658 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [RMI TCP Connection(45)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-09-06 18:03:11,662 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(45)-127.0.0.1] HikariPool-1 - Shutdown initiated...
+2021-09-06 18:03:11,665 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(45)-127.0.0.1] HikariPool-1 - Shutdown completed.
