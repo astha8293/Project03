@@ -90,8 +90,6 @@ public class PatientControllerTest {
 	@Test
 	public void testBookAppointment() throws Exception {
 		
-//		Patient patient=new Patient();
-//		patient.setP_id(1);
 		Doctor doctor=new Doctor();
 		doctor.setDoctorId(1);
 		Appointment appt=new Appointment();
@@ -99,7 +97,7 @@ public class PatientControllerTest {
 //		appt.setApplicationDate(new Date());
 		appt.setApplicationId(1);
 		appt.setPurpose("Testing appointment");
-//		appt.setPatient(patient);
+
 		appt.setDoctor(doctor);
 		Mockito.when(
 			appointmentService.createAppointment(Mockito.any(Appointment.class), Mockito.anyInt())
