@@ -56,8 +56,6 @@ public class Appointment {
 	@JoinColumn(name="family_id")
 	private Family member;
 	
-	//private int doctorId;
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="doctorId")
 	private Doctor doctor;

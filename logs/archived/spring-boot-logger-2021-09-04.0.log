@@ -1419,3 +1419,204 @@ org.postgresql.util.PSQLException: ERROR: null value in column "doctor_id" viola
 2021-09-04 16:15:28,085 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [RMI TCP Connection(58)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default'
 2021-09-04 16:15:28,086 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(58)-127.0.0.1] HikariPool-6 - Shutdown initiated...
 2021-09-04 16:15:28,089 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(58)-127.0.0.1] HikariPool-6 - Shutdown completed.
+2021-09-04 16:59:56,439 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting Project031Application using Java 15.0.2 on Srivan with PID 21936 (C:\Users\sriva\Documents\Project-03\Project03\target\classes started by sriva in C:\Users\sriva\Documents\Project-03\Project03)
+2021-09-04 16:59:56,442 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-04 16:59:56,479 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-04 16:59:56,480 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-04 16:59:57,046 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-04 16:59:57,125 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 72 ms. Found 10 JPA repository interfaces.
+2021-09-04 16:59:57,765 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9091 (http)
+2021-09-04 16:59:57,773 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9091"]
+2021-09-04 16:59:57,774 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-04 16:59:57,774 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-04 16:59:57,869 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-04 16:59:57,870 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1390 ms
+2021-09-04 16:59:58,028 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-04 16:59:58,074 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-04 16:59:58,194 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-04 16:59:58,287 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-09-04 17:00:00,938 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-09-04 17:00:00,955 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-09-04 17:00:41,644 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-04 17:00:41,652 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-04 17:00:42,090 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-04 17:00:42,297 WARN org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration [restartedMain] Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-09-04 17:00:42,394 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-09-04 17:00:42,407 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9091"]
+2021-09-04 17:00:42,426 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9091 (http) with context path ''
+2021-09-04 17:00:42,436 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started Project031Application in 46.362 seconds (JVM running for 47.087)
+2021-09-04 17:01:02,544 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9091-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-04 17:01:02,545 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9091-exec-2] Initializing Servlet 'dispatcherServlet'
+2021-09-04 17:01:02,546 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9091-exec-2] Completed initialization in 1 ms
+2021-09-04 17:19:22,869 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-9091-exec-1] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.Date` from String "2021-09-03 14:30:00": not a valid representation (error: Failed to parse Date value '2021-09-03 14:30:00': Cannot parse date "2021-09-03 14:30:00": while it seems to fit format 'yyyy-MM-dd'T'HH:mm:ss.SSSX', parsing fails (leniency? null)); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String "2021-09-03 14:30:00": not a valid representation (error: Failed to parse Date value '2021-09-03 14:30:00': Cannot parse date "2021-09-03 14:30:00": while it seems to fit format 'yyyy-MM-dd'T'HH:mm:ss.SSSX', parsing fails (leniency? null))
+ at [Source: (PushbackInputStream); line: 2, column: 23] (through reference chain: com.revature.project03.entities.Appointment["applicationDate"])]
+2021-09-04 20:21:33,737 WARN com.zaxxer.hikari.pool.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h9m1s600ms162µs700ns).
+2021-09-04 20:22:43,691 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(80)-127.0.0.1] Application shutdown requested.
+2021-09-04 20:22:44,396 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [RMI TCP Connection(80)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-09-04 20:22:44,402 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(80)-127.0.0.1] HikariPool-1 - Shutdown initiated...
+2021-09-04 20:22:44,408 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(80)-127.0.0.1] HikariPool-1 - Shutdown completed.
+2021-09-04 20:58:08,379 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting Project031Application using Java 15.0.2 on Srivan with PID 8656 (C:\Users\sriva\Documents\Project-03\Project03\target\classes started by sriva in C:\Users\sriva\Documents\Project-03\Project03)
+2021-09-04 20:58:08,388 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-04 20:58:08,485 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-04 20:58:08,486 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-04 20:58:11,480 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-04 20:58:11,704 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 207 ms. Found 10 JPA repository interfaces.
+2021-09-04 20:58:14,623 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9091 (http)
+2021-09-04 20:58:14,646 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9091"]
+2021-09-04 20:58:14,647 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-04 20:58:14,648 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-04 20:58:15,030 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-04 20:58:15,031 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 6544 ms
+2021-09-04 20:58:15,475 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-04 20:58:15,622 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-04 20:58:15,954 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-04 20:58:16,257 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-09-04 20:58:19,856 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-09-04 20:58:19,910 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-09-04 20:58:57,226 ERROR org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not instantiate id generator [entity-name=com.revature.project03.entities.Family]
+2021-09-04 20:58:57,228 WARN org.springframework.context.support.AbstractApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not instantiate id generator [entity-name=com.revature.project03.entities.Family]
+2021-09-04 20:58:57,231 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown initiated...
+2021-09-04 20:58:57,277 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown completed.
+2021-09-04 20:58:57,283 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Stopping service [Tomcat]
+2021-09-04 20:58:57,311 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-09-04 20:58:57,425 ERROR org.springframework.boot.SpringApplication [restartedMain] Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not instantiate id generator [entity-name=com.revature.project03.entities.Family]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.revature.project03.Project031Application.main(Project031Application.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not instantiate id generator [entity-name=com.revature.project03.entities.Family]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1845)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	... 21 common frames omitted
+Caused by: org.hibernate.MappingException: Could not instantiate id generator [entity-name=com.revature.project03.entities.Family]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.createIdentifierGenerator(DefaultIdentifierGeneratorFactory.java:124)
+	at org.hibernate.mapping.SimpleValue.createIdentifierGenerator(SimpleValue.java:355)
+	at org.hibernate.internal.SessionFactoryImpl.lambda$new$1(SessionFactoryImpl.java:289)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177)
+	at java.base/java.util.HashMap$ValueSpliterator.forEachRemaining(HashMap.java:1766)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:288)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 25 common frames omitted
+Caused by: org.hibernate.MappingException: The increment size of the [family_seq] sequence is set to [3] in the entity mapping while the associated database sequence increment size is [8].
+	at org.hibernate.id.enhanced.SequenceStyleGenerator.configure(SequenceStyleGenerator.java:261)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.createIdentifierGenerator(DefaultIdentifierGeneratorFactory.java:118)
+	... 42 common frames omitted
+2021-09-04 21:00:10,654 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting Project031Application using Java 15.0.2 on Srivan with PID 14224 (C:\Users\sriva\Documents\Project-03\Project03\target\classes started by sriva in C:\Users\sriva\Documents\Project-03\Project03)
+2021-09-04 21:00:10,660 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-04 21:00:10,743 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-04 21:00:10,744 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-04 21:00:12,045 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-04 21:00:12,236 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 178 ms. Found 10 JPA repository interfaces.
+2021-09-04 21:00:13,284 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9091 (http)
+2021-09-04 21:00:13,296 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9091"]
+2021-09-04 21:00:13,297 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-04 21:00:13,297 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-04 21:00:13,564 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-04 21:00:13,565 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2820 ms
+2021-09-04 21:00:13,914 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-04 21:00:13,995 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-04 21:00:14,257 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-04 21:00:14,449 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-09-04 21:00:17,819 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-09-04 21:00:17,857 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-09-04 21:01:04,050 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-04 21:01:04,072 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-04 21:01:05,232 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-04 21:01:06,018 WARN org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration [restartedMain] Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-09-04 21:01:06,432 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-09-04 21:01:06,487 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9091"]
+2021-09-04 21:01:06,655 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9091 (http) with context path ''
+2021-09-04 21:01:06,684 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started Project031Application in 56.786 seconds (JVM running for 58.887)
+2021-09-04 21:01:26,101 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9091-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-04 21:01:26,102 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9091-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-09-04 21:01:26,107 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9091-exec-1] Completed initialization in 4 ms
+2021-09-04 21:02:40,201 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(8)-127.0.0.1] Application shutdown requested.
+2021-09-04 21:02:40,269 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [RMI TCP Connection(8)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-09-04 21:02:40,275 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(8)-127.0.0.1] HikariPool-1 - Shutdown initiated...
+2021-09-04 21:02:40,290 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(8)-127.0.0.1] HikariPool-1 - Shutdown completed.
+2021-09-04 21:02:55,115 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting Project031Application using Java 15.0.2 on Srivan with PID 23980 (C:\Users\sriva\Documents\Project-03\Project03\target\classes started by sriva in C:\Users\sriva\Documents\Project-03\Project03)
+2021-09-04 21:02:55,121 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-04 21:02:55,218 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-04 21:02:55,219 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-04 21:02:56,348 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-04 21:02:56,519 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 157 ms. Found 10 JPA repository interfaces.
+2021-09-04 21:02:57,613 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9091 (http)
+2021-09-04 21:02:57,624 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9091"]
+2021-09-04 21:02:57,625 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-04 21:02:57,626 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-04 21:02:57,831 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-04 21:02:57,831 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2611 ms
+2021-09-04 21:02:58,223 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-04 21:02:58,318 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-04 21:02:58,575 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-04 21:02:58,768 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-09-04 21:03:01,633 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-09-04 21:03:01,675 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-09-04 21:03:46,002 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting Project031Application using Java 15.0.2 on Srivan with PID 11572 (C:\Users\sriva\Documents\Project-03\Project03\target\classes started by sriva in C:\Users\sriva\Documents\Project-03\Project03)
+2021-09-04 21:03:46,008 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2021-09-04 21:03:46,107 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-09-04 21:03:46,108 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-09-04 21:03:47,277 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-09-04 21:03:47,516 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 218 ms. Found 10 JPA repository interfaces.
+2021-09-04 21:03:48,890 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9091 (http)
+2021-09-04 21:03:48,917 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-9091"]
+2021-09-04 21:03:48,919 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2021-09-04 21:03:48,920 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-09-04 21:03:49,190 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-09-04 21:03:49,191 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 3080 ms
+2021-09-04 21:03:49,599 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-09-04 21:03:49,728 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-09-04 21:03:50,069 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-09-04 21:03:50,304 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-09-04 21:03:53,268 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-09-04 21:03:53,301 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-09-04 21:04:37,929 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-09-04 21:04:37,952 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-09-04 21:04:38,996 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-09-04 21:04:39,434 WARN org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration [restartedMain] Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-09-04 21:04:39,672 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-09-04 21:04:40,336 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-9091"]
+2021-09-04 21:04:40,380 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9091 (http) with context path ''
+2021-09-04 21:04:40,401 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started Project031Application in 55.16 seconds (JVM running for 57.016)
+2021-09-04 21:04:47,811 INFO org.apache.juli.logging.DirectJDKLog [http-nio-9091-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-04 21:04:47,812 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9091-exec-2] Initializing Servlet 'dispatcherServlet'
+2021-09-04 21:04:47,815 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-9091-exec-2] Completed initialization in 2 ms
+2021-09-04 21:52:19,103 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(54)-127.0.0.1] Application shutdown requested.
+2021-09-04 21:52:19,157 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [RMI TCP Connection(54)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-09-04 21:52:19,161 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(54)-127.0.0.1] HikariPool-1 - Shutdown initiated...
+2021-09-04 21:52:19,164 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(54)-127.0.0.1] HikariPool-1 - Shutdown completed.

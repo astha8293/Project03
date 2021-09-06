@@ -29,6 +29,7 @@ import javax.persistence.Table;
 import org.hibernate.id.enhanced.SequenceStyleGenerator;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.revature.project03.entities.Appointment;
 import com.revature.project03.model.DoctorAvailability;
 
 
