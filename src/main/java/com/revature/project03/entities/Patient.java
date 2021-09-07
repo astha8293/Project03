@@ -15,6 +15,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.JoinColumn;
 
 import lombok.AllArgsConstructor;
@@ -53,6 +56,7 @@ public class Patient {
     )
     Set<Doctor> doctors = new HashSet<>();
 	
+	@JsonIgnore
 	@OneToMany(cascade=CascadeType.ALL, mappedBy = "patient")
 	private List<Appointment> appointment=new ArrayList<>();
 

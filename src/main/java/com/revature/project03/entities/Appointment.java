@@ -46,7 +46,7 @@ public class Appointment {
 	private String availability;
 	
 	
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name="p_id")
 	private Patient patient;
