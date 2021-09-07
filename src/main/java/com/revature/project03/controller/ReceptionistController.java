@@ -130,6 +130,10 @@ public class ReceptionistController {
 		 }
 		 return appointmentService.completedConsulting(appointment, patientId);
 	 }
+	 @PostMapping("/cancelAppointment/{patientId}")
+	 public Appointment cancelAppointment(@RequestBody Appointment appointment,@PathVariable (value = "patientid") Integer patientId) throws ResourceNotFoundException {
+		 return appointmentService.cancellingAppointment(appointment, patientId);
+	 }
 	 //---------------------------------------------------------------------------------------------------------------------------------------------------
 	 
 	 @PostMapping("/cancelAllAppointments")

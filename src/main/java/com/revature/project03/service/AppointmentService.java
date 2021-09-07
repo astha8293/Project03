@@ -77,6 +77,12 @@ public class AppointmentService {
 		appointment.setAvailability("consulting");
 		return appointmentRepository.save(appointment);
 	}
+	public Appointment cancellingAppointment(Appointment appointment, int patientId) throws ResourceNotFoundException {
+		Patient patient =patientservice.getPatientById(patientId);
+		appointment.setPatient(patient);
+		appointment.setAvailability("cancelled");
+		return appointmentRepository.save(appointment);
+	}
 	public Appointment completedConsulting(Appointment appointment, int patientId) throws ResourceNotFoundException {
 		Patient patient =patientservice.getPatientById(patientId);
 		appointment.setPatient(patient);
