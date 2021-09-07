@@ -155,5 +155,9 @@ public class ReceptionistController {
 		return appointments;
 		 
 	 }
+	 @PostMapping("/gettotalNumbers")
+	 public List<DaywiseData> getalldatabyDate(@RequestBody DateFetch date){
+		return dayWiseDataService.findbydate(date.getDate());
+	 }
 	 
 }
