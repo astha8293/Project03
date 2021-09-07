@@ -142,9 +142,9 @@ public class DoctorController {
     	return leaveService.deleteDoctorLeave(doctorId);
     }
     
-    @PostMapping("/getallbydocid")
-    public List<DoctorLeave> getAllLeavesOfDoc(int id){
-    	return leaveService.findAllLeavesOfDoctorById(id);
+    @PostMapping("/getallbydocid/{doctorId}")
+    public List<DoctorLeave> getAllLeavesOfDoc(@PathVariable int doctorId){
+    	return leaveService.findAllLeavesOfDoctorById(doctorId);
     }
     
    
