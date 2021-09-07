@@ -40,7 +40,6 @@ public class Patient {
 	private String gender;
 	private String mobileNo;
 	private String address;
-	@Column(name = "email_id")
 	private String email;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy = "patient")

@@ -8,5 +8,5 @@ import com.revature.project03.entities.Appointment;
 
 public interface AppointmentRepository extends JpaRepository<Appointment, Integer>{
 	
-	public List<Appointment> findAllByapplicationDate(Date date);
+	public List<Appointment> findAllByapplicationDateBetween(Date startDate, Date endDate);
 }

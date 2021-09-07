@@ -1,5 +1,6 @@
 package com.revature.project03.service;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -52,9 +53,12 @@ public class AppointmentService {
 		return appointment;
 	}
 
-	public List<Appointment> getAppointmentByDate(Appointment appt) {
-		
-		return appointmentRepository.findAllByapplicationDate(appt.getApplicationDate());
+	public List<Appointment> getAppointmentByDate(Date date) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(date.getTime());
+		cal.add(Calendar.DAY_OF_MONTH, 1);
+		Date endDate = cal.getTime();
+		return appointmentRepository.findAllByapplicationDateBetween(date, endDate);
 	}
 	//--------------------------------------------------------------------------------------
 	public Appointment confirmAppointment(Appointment appointment, int patientId) throws ResourceNotFoundException {

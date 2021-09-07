@@ -134,7 +134,7 @@ public class ReceptionistController {
 	 
 	 @PostMapping("/cancelAllAppointments")
 	 public List<Appointment> cancelAllAppointments(@RequestBody Appointment appointment){
-		 List<Appointment> appointments = appointmentService.getAppointmentByDate(appointment);
+		 List<Appointment> appointments = appointmentService.getAppointmentByDate(appointment.getApplicationDate());
 		 List<DoctorLeave> doctorLeaves = doctorLeaveService.findbydates(appointment.getApplicationDate());
 		 for(DoctorLeave doctorL:doctorLeaves) {
 			 for(Appointment appointmentL:appointments) {

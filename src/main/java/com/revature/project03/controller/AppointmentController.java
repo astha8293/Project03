@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.project03.entities.Appointment;
@@ -41,7 +42,7 @@ public class AppointmentController {
 	}
 	
 	@GetMapping("/getappointmentbydate")
-	public List<Appointment> getAppointmentByDate(@RequestBody Appointment appointment) throws ResourceNotFoundException{
-		return appointmentService.getAppointmentByDate(appointment);
+	public List<Appointment> getAppointmentByDate(@RequestParam Date date) throws ResourceNotFoundException{
+		return appointmentService.getAppointmentByDate(date);
 	}
 }
