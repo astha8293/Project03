@@ -102,6 +102,16 @@ public class ReceptionistController {
 		 return appointmentService.confirmAppointment(appointment, patientId);
 	 }
 	 
+	 @PostMapping("/consultingnow/{patientId}")
+	 public Appointment consultingnow(@RequestBody Appointment appointment,@PathVariable (value = "patientid") Integer patientId) throws ResourceNotFoundException {
+		 return appointmentService.currentlyConsulting(appointment, patientId);
+	 }
+	 
+	 @PostMapping("/completedAppointment/{patientId}")
+	 public Appointment completedAppointment(@RequestBody Appointment appointment,@PathVariable (value = "patientid") Integer patientId) throws ResourceNotFoundException {
+		 return appointmentService.completedConsulting(appointment, patientId);
+	 }
+	 
 	 @PostMapping("/cancelAllAppointments")
 	 public List<Appointment> cancelAllAppointments(@RequestBody Appointment appointment){
 		 List<Appointment> appointments = appointmentService.getAppointmentByDate(appointment);
