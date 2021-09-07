@@ -29,13 +29,26 @@ public class AppointmentService {
 	private DoctorService doctorService;
 	
 	public Appointment createAppointment(Appointment appointment, int patientId) throws ResourceNotFoundException {
-		Patient patient =patientservice.getPatientById(patientId);
-//		Doctor currDoc = appointment.getDoctor();
-//		Doctor doctor = doctorService.getDoctorById(currDoc.getDoctorId());
-//		System.out.println("currDoc id:"+appointment.getDoctor().getDoctorId());
-		//appointment.setDoctor(currDoc);
-		appointment.setPatient(patient);
-		return appointmentRepository.save(appointment);
+		if(appointmentRepository.existsByApplicationDateAndDoctor(appointment.getApplicationDate(),appointment.getDoctor())) {
+		
+		Appointment app = new Appointment();
+		app.setAvailability("occupied");
+		return app;
+		}
+		else {
+			if(appointmentRepository.existsByApplicationDateAndPatient(appointment.getApplicationDate(),appointment.getPatient())) {
+				Appointment app = new Appointment();
+				app.setAvailability("occupied");
+				return app;
+			}
+			else {
+				Patient patient =patientservice.getPatientById(patientId);
+				appointment.setPatient(patient);
+				return appointmentRepository.save(appointment);
+				
+			}
+			
+		}
 	}
 	
 	public List<Appointment> getAppointmentByPatientId(int patientId) throws ResourceNotFoundException {
