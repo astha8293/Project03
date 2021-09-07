@@ -14,5 +14,7 @@ public interface DoctorLeaveRepository extends JpaRepository<DoctorLeave, Intege
 	List<DoctorLeave> findAllByDoctorId(int doctorId);
 	
 	List<DoctorLeave> findAllByLeaveDate(Date date);
+	
+	boolean existsByLeaveDateAndDoctorId(Date date,int id);
 
 }

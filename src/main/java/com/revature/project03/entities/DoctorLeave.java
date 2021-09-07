@@ -34,5 +34,6 @@ public class DoctorLeave {
 	private int doctorId;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date leaveDate;
+	private String Status;
 
 }

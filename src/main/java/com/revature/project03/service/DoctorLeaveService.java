@@ -16,8 +16,16 @@ public class DoctorLeaveService {
     private DoctorLeaveRepository repository;
 	
 	public DoctorLeave saveDoctorLeave(DoctorLeave doctorLeave) {
-    	
-        return repository.save(doctorLeave);
+    	if(repository.existsByLeaveDateAndDoctorId(doctorLeave.getLeaveDate(),doctorLeave.getDoctorId())) {
+    		DoctorLeave dl = new DoctorLeave();
+    		dl.setStatus("booked");
+    		return dl;
+    	}
+    	else {
+    		doctorLeave.setStatus("confirmed");
+    		return repository.save(doctorLeave);
+    	}
+       
     }
 	
 	public String deleteDoctorLeave(int id) {
