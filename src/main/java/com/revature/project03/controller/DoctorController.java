@@ -147,6 +147,10 @@ public class DoctorController {
     	return leaveService.findAllLeavesOfDoctorById(doctorId);
     }
     
+    @PostMapping("/getallLeaves")
+    public List<DoctorLeave> getAllLeaves(){
+    	return leaveService.findAllLeaves();
+    }
    
 
 }

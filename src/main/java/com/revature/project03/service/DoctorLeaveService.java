@@ -18,7 +18,7 @@ public class DoctorLeaveService {
 	public DoctorLeave saveDoctorLeave(DoctorLeave doctorLeave) {
     	if(repository.existsByLeaveDateAndDoctorId(doctorLeave.getLeaveDate(),doctorLeave.getDoctorId())) {
     		DoctorLeave dl = new DoctorLeave();
-    		dl.setStatus("booked");
+    		dl.setStatus("declined");
     		return dl;
     	}
     	else {
@@ -32,6 +32,9 @@ public class DoctorLeaveService {
         repository.deleteByDoctorId(id);
         return "Doctor Leave removed !! " + id;
     }
+	public List<DoctorLeave> findAllLeaves(){
+		return repository.findAll();
+	}
 	
 	public List<DoctorLeave> findAllLeavesOfDoctorById(int id){
 		return repository.findAllByDoctorId(id);
