@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.project03.entities.Appointment;
+import com.revature.project03.entities.DaywiseData;
 import com.revature.project03.entities.DoctorLeave;
 import com.revature.project03.entities.LoginRoute;
 import com.revature.project03.entities.Receptionist;
@@ -24,6 +25,7 @@ import com.revature.project03.model.DateFetch;
 import com.revature.project03.model.ReceptionistDto;
 import com.revature.project03.repository.AppointmentRepository;
 import com.revature.project03.service.AppointmentService;
+import com.revature.project03.service.DayWiseDataService;
 import com.revature.project03.service.DoctorLeaveService;
 import com.revature.project03.service.LoginRouteService;
 import com.revature.project03.service.ReceptionistService;
@@ -48,6 +50,8 @@ public class ReceptionistController {
 	private DoctorLeaveService doctorLeaveService;
 	@Autowired
 	private AppointmentRepository appointmentRepository;
+	@Autowired
+	private DayWiseDataService dayWiseDataService;
 	public String generateRandomPassword() {
 	    PasswordGenerator gen = new PasswordGenerator();
 	    org.passay.CharacterData lowerCaseChars = EnglishCharacterData.LowerCase;
@@ -97,6 +101,8 @@ public class ReceptionistController {
 	        return service.saveReceptionist(recep);
 	    }
 	 
+	 //---------------------------APPLICATION STATUS----------------------------------------------------------------------------------------------------------
+	 
 	 @PostMapping("/confirmAppointment/{patientId}")
 	 public Appointment confirmAppointment(@RequestBody Appointment appointment,@PathVariable (value = "patientid") Integer patientId) throws ResourceNotFoundException {
 		 return appointmentService.confirmAppointment(appointment, patientId);
@@ -107,10 +113,24 @@ public class ReceptionistController {
 		 return appointmentService.currentlyConsulting(appointment, patientId);
 	 }
 	 
-	 @PostMapping("/completedAppointment/{patientId}")
-	 public Appointment completedAppointment(@RequestBody Appointment appointment,@PathVariable (value = "patientid") Integer patientId) throws ResourceNotFoundException {
+	 @PostMapping("/completedAppointment/{patientId}/{amount}")
+	 public Appointment completedAppointment(@RequestBody Appointment appointment,@PathVariable (value = "patientId") Integer patientId,@PathVariable (value="amount") Integer amount) throws ResourceNotFoundException {
+		 if(dayWiseDataService.checkdata(appointment.getApplicationDate(), appointment.getDoctor().getDoctorId())) {
+			 DaywiseData dayWise1 = dayWiseDataService.getDataByIdAndDate(appointment.getApplicationDate(), appointment.getDoctor().getDoctorId());
+			 dayWiseDataService.updateData(dayWise1, amount);	 
+		 }
+		 else {
+			 DaywiseData daywise2 = new DaywiseData();
+			 daywise2.setDate(appointment.getApplicationDate());
+			 daywise2.setDocId(appointment.getDoctor().getDoctorId());
+			 daywise2.setDocName(appointment.getDoctor().getFirstName());
+			 daywise2.setTotalPatients(1);
+			 daywise2.setAmountCollected(amount);
+			 dayWiseDataService.addData(daywise2);
+		 }
 		 return appointmentService.completedConsulting(appointment, patientId);
 	 }
+	 //---------------------------------------------------------------------------------------------------------------------------------------------------
 	 
 	 @PostMapping("/cancelAllAppointments")
 	 public List<Appointment> cancelAllAppointments(@RequestBody Appointment appointment){
@@ -135,5 +155,5 @@ public class ReceptionistController {
 		return appointments;
 		 
 	 }
-
+	 
 }
