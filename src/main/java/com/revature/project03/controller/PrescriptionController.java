@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.project03.entities.Appointment;
 import com.revature.project03.entities.Prescriptions;
 
 import com.revature.project03.service.PrescriptionService;
@@ -58,6 +59,9 @@ public class PrescriptionController {
     public String deletePrescriptions(@PathVariable int id) {
         return service.deletePrescriptions(id);
     }
-    
+    @PostMapping("/getPrescriptionsByAppId")
+    public Prescriptions getPresByAppId(@RequestBody Appointment appointment) {
+    	return service.getprescriptionByAppId(appointment);
+    }
 
 }

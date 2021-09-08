@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.revature.project03.entities.Appointment;
 import com.revature.project03.entities.Prescriptions;
 import com.revature.project03.repository.PrescriptionsRepository;
 
@@ -47,5 +47,10 @@ public class PrescriptionService {
     public Prescriptions updatePrescriptions(Prescriptions prescription) {
         Prescriptions existingPrescriptions = repository.findByPresId(prescription.getPresId());
         return repository.save(existingPrescriptions);
+    }
+    
+    public Prescriptions getprescriptionByAppId(Appointment appointment) {
+    	Prescriptions pres = repository.findByAppointmentId(appointment.getApplicationId());
+    	return pres;
     }
 }
