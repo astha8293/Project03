@@ -51,6 +51,7 @@ public class Family {
 	@JoinColumn(name="p_id")
 	private Patient patient;
 	
+	@JsonIgnore
 	@ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
         name = "Doctor_Family", 

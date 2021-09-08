@@ -48,6 +48,7 @@ public class Patient {
 	@OneToMany(cascade=CascadeType.ALL, mappedBy = "patient")
 	private List<Family> members=new ArrayList<>();
 	
+	@JsonIgnore
 	@ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
         name = "Doctor_Patient", 
