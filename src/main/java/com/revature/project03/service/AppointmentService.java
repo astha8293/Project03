@@ -51,13 +51,34 @@ public class AppointmentService {
 			
 		}
 	}
+	
 	public Appointment createFamilyAppointment(Appointment appointment, Integer patientId, Integer familyId) throws ResourceNotFoundException {
-		Patient patient =patientservice.getPatientById(patientId);
-		appointment.setPatient(patient);
-		Family member=patientservice.getFamilyMemberById(familyId);
-		appointment.setMember(member);
 		
-		return appointmentRepository.save(appointment);
+		if(appointmentRepository.existsByApplicationDateAndDoctor(appointment.getApplicationDate(),appointment.getDoctor())) {
+			
+			Appointment app = new Appointment();
+			app.setAvailability("occupied");
+			return app;
+			}
+			else {
+				if(appointmentRepository.existsByApplicationDateAndPatient(appointment.getApplicationDate(),appointment.getPatient())) {
+					Appointment app = new Appointment();
+					app.setAvailability("occupied");
+					return app;
+				}
+				else {
+					Patient patient =patientservice.getPatientById(patientId);
+					appointment.setPatient(patient);
+					Family member=patientservice.getFamilyMemberById(familyId);
+					appointment.setMember(member);
+					return appointmentRepository.save(appointment);
+					
+				}
+				
+			}
+		
+		
+		
 	}
 	
 	public List<Appointment> getAppointmentByPatientId(int patientId) throws ResourceNotFoundException {

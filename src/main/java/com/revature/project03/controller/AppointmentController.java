@@ -35,7 +35,7 @@ public class AppointmentController {
 		return appointmentService.createAppointment(appointment, patientId);
 	}
 	
-	@PostMapping("/book/{patientid}/{familyid}")
+	@PostMapping("/bookforFamily/{patientid}/{familyid}")
 	public Appointment createFamilyAppointment(@RequestBody Appointment appointment,
 			@PathVariable(value = "patientid")Integer patientId, @PathVariable(value = "familyid") Integer familyId) throws ResourceNotFoundException{
 		log.trace("Appointment has booked with patient id ");
