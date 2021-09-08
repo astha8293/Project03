@@ -21,7 +21,10 @@ import com.revature.project03.service.LoginRouteService;
 import com.revature.project03.service.PatientService;
 import com.revature.project03.service.ReceptionistService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
+@Slf4j
 @RequestMapping("/loginController")
 @CrossOrigin(origins = "*")
 public class LoginController {
@@ -51,6 +54,7 @@ public class LoginController {
 				status.setUserId(doctor1.getDoctorId());
 				status.setRole(loginRoute.getRole());
 				status.setStat(true);
+				log.trace("user logged in as Doctor Successfully");
 				return status;
 			}
 			else if (loginRoute.getRole().equals("patient")) {
@@ -59,6 +63,7 @@ public class LoginController {
 				status.setUserId(patient1.getP_id());
 				status.setRole(loginRoute.getRole());
 				status.setStat(true);
+				log.trace("user logged in as Patient Successfully");
 				return status;
 			}
 			else if (loginRoute.getRole().equals("admin")) {
@@ -67,6 +72,7 @@ public class LoginController {
 				status.setUserId(admin1.getAdminId());
 				status.setRole(loginRoute.getRole());
 				status.setStat(true);
+				log.trace("user logged in as Admin Successfully");
 				return status;
 			}
 
@@ -75,6 +81,7 @@ public class LoginController {
 			     status.setUserId(receptionist.getRId());
 			     status.setRole(loginRoute.getRole());
 				status.setStat(true);
+				log.trace("user logged in as Receptionist Successfully");
 				return status;
 		}
 

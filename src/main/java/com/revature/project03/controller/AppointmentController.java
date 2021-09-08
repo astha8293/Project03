@@ -17,7 +17,10 @@ import com.revature.project03.entities.Appointment;
 import com.revature.project03.exception.ResourceNotFoundException;
 import com.revature.project03.service.AppointmentService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
+@Slf4j
 @CrossOrigin(origins = "*")
 @RequestMapping("/appointment")
 public class AppointmentController {
@@ -27,17 +30,20 @@ public class AppointmentController {
     
 	@PostMapping("/book/{patientid}")
 	public Appointment createAppointment(@RequestBody Appointment appointment, @PathVariable(value = "patientid") Integer patientId) throws ResourceNotFoundException{
+		log.trace("Appointment has booked with patient id ");
 		
 		return appointmentService.createAppointment(appointment, patientId);
 	}
 	
 	@GetMapping("/patient/{patientid}/getappointment")
 	public List<Appointment> getAppointmentByPatientId(@PathVariable(value = "patientid") Integer patientId) throws ResourceNotFoundException{
+		log.trace(" getting Appointment by patient id ");
 		return appointmentService.getAppointmentByPatientId(patientId);
 	}
 	
 	@GetMapping("/member/{familyid}/getappointment")
 	public List<Appointment> getAppointmentByFamilyId(@PathVariable(value = "familyid") Integer familyId) throws ResourceNotFoundException{
+		log.trace("getting Appointment by patient id ");
 		return appointmentService.getAppointmentByFamilyId(familyId);
 	}
 	
