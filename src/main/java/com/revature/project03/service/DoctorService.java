@@ -51,7 +51,12 @@ public class DoctorService {
         existingDoctor.setEmail(doctor.getEmail());
         existingDoctor.setPhno(doctor.getPhno());
         existingDoctor.setPassword(doctor.getPassword());
-       
+       existingDoctor.setAppointment(doctor.getAppointment());
+       existingDoctor.setDesignation(doctor.getDesignation());
+       existingDoctor.setDoctorAvailability(doctor.getDoctorAvailability());
+       existingDoctor.setDoctorId(doctor.getDoctorId());
+       existingDoctor.setFees(doctor.getFees());
+       existingDoctor.setSpecialization(doctor.getSpecialization());
 
         return repository.save(existingDoctor);
     }
