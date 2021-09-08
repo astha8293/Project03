@@ -35,6 +35,14 @@ public class AppointmentController {
 		return appointmentService.createAppointment(appointment, patientId);
 	}
 	
+	@PostMapping("/book/{patientid}/{familyid}")
+	public Appointment createFamilyAppointment(@RequestBody Appointment appointment,
+			@PathVariable(value = "patientid")Integer patientId, @PathVariable(value = "familyid") Integer familyId) throws ResourceNotFoundException{
+		log.trace("Appointment has booked with patient id ");
+		
+		return appointmentService.createFamilyAppointment(appointment, patientId, familyId);
+	}
+	
 	@GetMapping("/patient/{patientid}/getappointment")
 	public List<Appointment> getAppointmentByPatientId(@PathVariable(value = "patientid") Integer patientId) throws ResourceNotFoundException{
 		log.trace(" getting Appointment by patient id ");
