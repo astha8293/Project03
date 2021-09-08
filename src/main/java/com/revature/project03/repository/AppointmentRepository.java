@@ -13,4 +13,5 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Intege
 	public List<Appointment> findAllByapplicationDateBetween(Date startDate, Date endDate);
 	boolean existsByApplicationDateAndPatient(Date date,Patient patient);
 	boolean existsByApplicationDateAndDoctor(Date date,Doctor doctor);
+	Appointment findByAvailabilityAndDoctor(String availability,Doctor doctor);
 }

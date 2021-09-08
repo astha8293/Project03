@@ -59,4 +59,9 @@ public class AppointmentController {
 	public List<Appointment> getAppointmentByDate(@RequestParam Date date) throws ResourceNotFoundException{
 		return appointmentService.getAppointmentByDate(date);
 	}
+	
+	@GetMapping("/getcurrentPatient/{doctorId}")
+	public Appointment getCurrentPatient(@PathVariable(value = "doctorId") Integer doctorId) {
+		return appointmentService.getcurrAppt(doctorId);
+	}
 }

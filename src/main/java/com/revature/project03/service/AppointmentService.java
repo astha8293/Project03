@@ -136,6 +136,11 @@ public class AppointmentService {
 	public List<Appointment> getAllAppointments(){
 		return appointmentRepository.findAll();
 	}
+	
+	public Appointment getcurrAppt(int doctorId) {
+		Doctor doc1 = doctorService.getDoctorById(doctorId);
+		return appointmentRepository.findByAvailabilityAndDoctor("consulting", doc1);
+	}
 
 	
 
