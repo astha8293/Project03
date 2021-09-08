@@ -12,10 +12,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.project03.entities.Appointment;
 import com.revature.project03.entities.Prescriptions;
 
 import com.revature.project03.service.PrescriptionService;
+
+import lombok.extern.slf4j.Slf4j;
 @RestController 
+@Slf4j
 @CrossOrigin(origins = "*")
 public class PrescriptionController {
 	@Autowired
@@ -23,41 +27,53 @@ public class PrescriptionController {
 
     @PostMapping("/addPrescription")
     public Prescriptions addPrescriptions(@RequestBody Prescriptions prescription) {
-        return service.savePrescriptions(prescription);
+    	log.trace("adding Prescription details");
+    	return service.savePrescriptions(prescription);
     }
 
     @PostMapping("/addPrescriptions")
     public List<Prescriptions> addPrescriptionss(@RequestBody List<Prescriptions> prescriptions) {
-        return service.savePrescriptionss(prescriptions);
+    	log.trace("adding list of  Prescription details");
+    	return service.savePrescriptionss(prescriptions);
     }
 
     @GetMapping("/allPrescriptions")
     public List<Prescriptions> findAllPrescriptionss() {
-        return service.getPrescriptionss();
+    	log.trace("getting list of Prescription details");
+    	return service.getPrescriptionss();
     }
 
     @GetMapping("/prescriptionById/{id}")
     public Prescriptions findPrescriptionsById(@PathVariable int id) {
-        return service.getPrescriptionsById(id);
+    	log.trace("getting Prescription detail by prescriptionById");
+    	return service.getPrescriptionsById(id);
     }
     @GetMapping("/prescriptionByDoctorId/{doctorId}")
     public List<Prescriptions> findPrescriptionsByEmail(@PathVariable int doctorId) {
-        return service.getPrescriptionsByDoctorId(doctorId);
+    	log.trace("getting list of Prescription details by DoctorId");
+    	return service.getPrescriptionsByDoctorId(doctorId);
     }
     @GetMapping("/allPrescriptionsByPatientId/{patientId}")
     public List<Prescriptions> findAllPrescriptionsByPatientId(@PathVariable int patientId) {
-        return service.getPrescriptionsByPatientId(patientId);
+    	log.trace("getting list of Prescription details by PatientId");
+    	return service.getPrescriptionsByPatientId(patientId);
     }
     
     @PutMapping("/updatePrescriptions")
     public Prescriptions updatePrescriptions(@RequestBody Prescriptions prescription) {
-        return service.updatePrescriptions(prescription);
+    	log.trace("updating Prescriptions");
+    	return service.updatePrescriptions(prescription);
     }
 
     @DeleteMapping("/deletePrescriptions/{id}")
     public String deletePrescriptions(@PathVariable int id) {
-        return service.deletePrescriptions(id);
+    	log.trace("deleting Prescription by id");
+    	return service.deletePrescriptions(id);
     }
-    
+    @PostMapping("/getPrescriptionsByAppId")
+    public Prescriptions getPresByAppId(@RequestBody Appointment appointment) {
+    	log.trace("Getting prescription details by Appointement");
+    	return service.getprescriptionByAppId(appointment);
+    }
 
 }

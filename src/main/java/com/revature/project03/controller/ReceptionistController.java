@@ -30,11 +30,9 @@ import com.revature.project03.service.DoctorLeaveService;
 import com.revature.project03.service.LoginRouteService;
 import com.revature.project03.service.ReceptionistService;
 
+import lombok.extern.slf4j.Slf4j;
 
-
-
-
-
+@Slf4j
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/receptionistController")
@@ -97,6 +95,7 @@ public class ReceptionistController {
 		 loginRoute.setRole("receptionist");
 		 loginRoute.setUserEmail(recep.getREmail());
 		 loginRouteService.saveLoginInfo(loginRoute);
+		 log.info("added new receptionist");
 		 	
 	        return service.saveReceptionist(recep);
 	    }
@@ -105,11 +104,13 @@ public class ReceptionistController {
 	 
 	 @PostMapping("/confirmAppointment/{patientId}")
 	 public Appointment confirmAppointment(@RequestBody Appointment appointment,@PathVariable (value = "patientId") Integer patientId) throws ResourceNotFoundException {
+		 log.trace("confirm Appointment with patient Id");
 		 return appointmentService.confirmAppointment(appointment, patientId);
 	 }
 	 
 	 @PostMapping("/consultingnow/{patientId}")
 	 public Appointment consultingnow(@RequestBody Appointment appointment,@PathVariable (value = "patientId") Integer patientId) throws ResourceNotFoundException {
+		 log.info("consulting now with patient");
 		 return appointmentService.currentlyConsulting(appointment, patientId);
 	 }
 	 
@@ -117,6 +118,7 @@ public class ReceptionistController {
 	 public Appointment completedAppointment(@RequestBody Appointment appointment,@PathVariable (value = "patientId") Integer patientId,@PathVariable (value="amount") Integer amount) throws ResourceNotFoundException {
 		 if(dayWiseDataService.checkdata(appointment.getApplicationDate(), appointment.getDoctor().getDoctorId())) {
 			 DaywiseData dayWise1 = dayWiseDataService.getDataByIdAndDate(appointment.getApplicationDate(), appointment.getDoctor().getDoctorId());
+			 log.trace("daily ammount collected daywise :"+amount);
 			 dayWiseDataService.updateData(dayWise1, amount);	 
 		 }
 		 else {
@@ -126,12 +128,14 @@ public class ReceptionistController {
 			 daywise2.setDocName(appointment.getDoctor().getFirstName());
 			 daywise2.setTotalPatients(1);
 			 daywise2.setAmountCollected(amount);
+			 log.trace("Daywise data added :"+appointment.getApplicationDate());
 			 dayWiseDataService.addData(daywise2);
 		 }
 		 return appointmentService.completedConsulting(appointment, patientId);
 	 }
 	 @PostMapping("/cancelAppointment/{patientId}")
 	 public Appointment cancelAppointment(@RequestBody Appointment appointment,@PathVariable (value = "patientId") Integer patientId) throws ResourceNotFoundException {
+		 log.info("cancel Appointment by patient id:");
 		 return appointmentService.cancellingAppointment(appointment, patientId);
 	 }
 	 //---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -149,6 +153,7 @@ public class ReceptionistController {
 					 appointmentL.setMember(appointmentL.getMember());
 					 appointmentL.setPurpose(appointmentL.getPurpose());
 					 appointmentL.setAvailability("cancelled");
+					 log.trace("cancelled all Appointments");
 					 appointmentRepository.save(appointmentL);
 				 }
 			 }
@@ -166,7 +171,8 @@ public class ReceptionistController {
 	 }
 	 @PostMapping("/gettotalNumbers")
 	 public List<DaywiseData> getalldatabyDate(@RequestBody DateFetch date){
-		return dayWiseDataService.findbydate(date.getDate());
+		 log.info("total numbers of patient data");
+		 return dayWiseDataService.findbydate(date.getDate());
 	 }
 	 
 }

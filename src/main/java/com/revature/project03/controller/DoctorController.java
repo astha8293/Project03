@@ -98,57 +98,68 @@ public class DoctorController {
 
     @PostMapping("/addDoctors")
     public List<Doctor> addDoctors(@RequestBody List<Doctor> doctors) {
-        return service.saveDoctors(doctors);
+    	log.trace("New Doctors are added ");
+    	return service.saveDoctors(doctors);
     }
 
     @GetMapping("/doctors")
     public List<Doctor> findAllDoctors() {
-        return service.getDoctors();
+    	log.trace("getting all doctors ");
+    	return service.getDoctors();
     }
 
     @GetMapping("/doctorById/{id}")
     public Doctor findDoctorById(@PathVariable int id) {
-        return service.getDoctorById(id);
+    	log.trace("getting doctor details by id ");
+    	return service.getDoctorById(id);
     }
     @GetMapping("/doctorByEmail/{email}")
     public Doctor findDoctorByEmail(@PathVariable String email) {
-        return service.getDoctorByEmail(email);
+    	log.trace("getting doctor details by email ");
+    	return service.getDoctorByEmail(email);
     }
     
     @PutMapping("/updateDoctor")
     public Doctor updateDoctor(@RequestBody Doctor doctor) {
-        return service.updateDoctor(doctor);
+    	log.trace("updating  doctor details");
+    	return service.updateDoctor(doctor);
     }
 
     @DeleteMapping("/deleteDoctor/{id}")
     public String deleteDoctor(@PathVariable int id) {
-        return service.deleteDoctor(id);
+    	log.info("deleting  doctor details by id");
+    	return service.deleteDoctor(id);
     }
     
     @PostMapping("/bookleave")
     public DoctorLeave applyleave(@RequestBody DoctorLeave leave) {
-		return leaveService.saveDoctorLeave(leave);
+    	log.trace("doctor on leave");
+    	return leaveService.saveDoctorLeave(leave);
     	
     }
     
     @GetMapping("/getleavesbydate")
     public List<DoctorLeave> getleavesbydate(@RequestBody DateFetch dateFetch) {
-		return leaveService.findbydates(dateFetch.getDate());
+    	log.trace("doctor getting leave by date");
+    	return leaveService.findbydates(dateFetch.getDate());
     	
     }
     
     @DeleteMapping("/deleteleave/{doctorId}")
     public String deleteleave(@PathVariable int doctorId) {
+    	log.trace("deleting doctor with  doctor id ");
     	return leaveService.deleteDoctorLeave(doctorId);
     }
     
     @PostMapping("/getallbydocid/{doctorId}")
     public List<DoctorLeave> getAllLeavesOfDoc(@PathVariable int doctorId){
+    	log.trace("getting doctor leave details by id");
     	return leaveService.findAllLeavesOfDoctorById(doctorId);
     }
     
     @GetMapping("/getallLeaves")
     public List<DoctorLeave> getAllLeaves(){
+    	log.trace("getting all doctors leave");
     	return leaveService.findAllLeaves();
     }
    
