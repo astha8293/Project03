@@ -45,6 +45,7 @@ public class PatientController {
 		log.info("Patient is adding family member");
 		return patientService.createFamilyMember(familyMember, patientId);
 	}
+	
 
 	@PutMapping("/family/{id}")
 	public Family updateFamilyMember(@PathVariable(value = "id") Integer familyMemberId,
