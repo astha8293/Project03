@@ -104,12 +104,12 @@ public class ReceptionistController {
 	 //---------------------------APPLICATION STATUS----------------------------------------------------------------------------------------------------------
 	 
 	 @PostMapping("/confirmAppointment/{patientId}")
-	 public Appointment confirmAppointment(@RequestBody Appointment appointment,@PathVariable (value = "patientid") Integer patientId) throws ResourceNotFoundException {
+	 public Appointment confirmAppointment(@RequestBody Appointment appointment,@PathVariable (value = "patientId") Integer patientId) throws ResourceNotFoundException {
 		 return appointmentService.confirmAppointment(appointment, patientId);
 	 }
 	 
 	 @PostMapping("/consultingnow/{patientId}")
-	 public Appointment consultingnow(@RequestBody Appointment appointment,@PathVariable (value = "patientid") Integer patientId) throws ResourceNotFoundException {
+	 public Appointment consultingnow(@RequestBody Appointment appointment,@PathVariable (value = "patientId") Integer patientId) throws ResourceNotFoundException {
 		 return appointmentService.currentlyConsulting(appointment, patientId);
 	 }
 	 
@@ -131,7 +131,7 @@ public class ReceptionistController {
 		 return appointmentService.completedConsulting(appointment, patientId);
 	 }
 	 @PostMapping("/cancelAppointment/{patientId}")
-	 public Appointment cancelAppointment(@RequestBody Appointment appointment,@PathVariable (value = "patientid") Integer patientId) throws ResourceNotFoundException {
+	 public Appointment cancelAppointment(@RequestBody Appointment appointment,@PathVariable (value = "patientId") Integer patientId) throws ResourceNotFoundException {
 		 return appointmentService.cancellingAppointment(appointment, patientId);
 	 }
 	 //---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -153,11 +153,16 @@ public class ReceptionistController {
 				 }
 			 }
 		 }
-		 
-		 
-		 
-		return appointments;
-		 
+		return appointments; 
+	 }
+	 @PostMapping
+	 public void cancelForOneDoc(@RequestBody DoctorLeave doctorLeave) throws ResourceNotFoundException{
+		 List<Appointment> appointments = appointmentService.getAppointmentByDate(doctorLeave.getLeaveDate());
+		 for(Appointment appointmentL:appointments) {
+			 if(appointmentL.getDoctor().getDoctorId()==doctorLeave.getDoctorId()) {
+				 appointmentService.cancellingAppointment(appointmentL, appointmentL.getPatient().getP_id());
+			 }
+		 }
 	 }
 	 @PostMapping("/gettotalNumbers")
 	 public List<DaywiseData> getalldatabyDate(@RequestBody DateFetch date){

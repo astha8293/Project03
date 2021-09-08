@@ -89,7 +89,7 @@ public class DoctorController {
     	doctor.setPassword(newPass);
     	LoginRoute loginRoute = new LoginRoute();
     	loginRoute.setPasswd(newPass);
-		loginRoute.setRole("receptionist");
+		loginRoute.setRole("doctor ");
 		loginRoute.setUserEmail(doctor.getEmail());
 		loginRouteService.saveLoginInfo(loginRoute);
     	log.trace("New Doctor Added with email: "+ doctor.getEmail());

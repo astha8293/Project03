@@ -2,6 +2,7 @@ package com.revature.project03.controller;
 
 import org.hibernate.annotations.NaturalId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ import com.revature.project03.service.ReceptionistService;
 
 @RestController
 @RequestMapping("/loginController")
+@CrossOrigin(origins = "*")
 public class LoginController {
 
 	@Autowired
