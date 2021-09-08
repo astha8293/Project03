@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.project03.entities.Doctor;
+import com.revature.project03.entities.LoginRoute;
 import com.revature.project03.repository.DoctorRepository;
+import com.revature.project03.repository.LoginRouteRepository;
 
 @Service
 public class DoctorService {
@@ -15,6 +17,10 @@ public class DoctorService {
     private DoctorRepository repository;
 	@Autowired
 	private EmailService emailService;
+	@Autowired
+	private LoginRouteService loginrouteService;
+	@Autowired
+	private LoginRouteRepository loginrouteRepository;
 	
     public Doctor saveDoctor(Doctor doctor) {
     	String message = "hi, your login details are, UserName:  "+doctor.getEmail()+"  Password:  "+doctor.getPassword();
@@ -57,6 +63,13 @@ public class DoctorService {
        existingDoctor.setDoctorId(doctor.getDoctorId());
        existingDoctor.setFees(doctor.getFees());
        existingDoctor.setSpecialization(doctor.getSpecialization());
+       LoginRoute lr = loginrouteService.findbyEmail(doctor.getEmail());
+       lr.setPasswd(doctor.getPassword());
+       lr.setRole(lr.getRole());
+       lr.setUserEmail(lr.getUserEmail());
+       lr.setRouteId(lr.getRouteId());
+       loginrouteRepository.save(lr);
+       
 
         return repository.save(existingDoctor);
     }
