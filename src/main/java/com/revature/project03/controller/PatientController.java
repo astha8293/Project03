@@ -80,7 +80,7 @@ public class PatientController {
     	return patientService.createPatient(patient);
     }
          
-    @PutMapping("/patient/{id}")
+    @PutMapping("/update/patient/{id}")
     public Patient updatePatient(@PathVariable(value = "id") Integer patientId,
          Patient patientDetails) throws ResourceNotFoundException {
     	log.trace("updating patient details by id");
