@@ -44,11 +44,20 @@ public class AppointmentService {
 			else {
 				Patient patient =patientservice.getPatientById(patientId);
 				appointment.setPatient(patient);
+
 				return appointmentRepository.save(appointment);
 				
 			}
 			
 		}
+	}
+	public Appointment createFamilyAppointment(Appointment appointment, Integer patientId, Integer familyId) throws ResourceNotFoundException {
+		Patient patient =patientservice.getPatientById(patientId);
+		appointment.setPatient(patient);
+		Family member=patientservice.getFamilyMemberById(familyId);
+		appointment.setMember(member);
+		
+		return appointmentRepository.save(appointment);
 	}
 	
 	public List<Appointment> getAppointmentByPatientId(int patientId) throws ResourceNotFoundException {
@@ -106,5 +115,7 @@ public class AppointmentService {
 	public List<Appointment> getAllAppointments(){
 		return appointmentRepository.findAll();
 	}
+
+	
 
 }
