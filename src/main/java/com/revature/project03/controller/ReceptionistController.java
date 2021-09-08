@@ -155,7 +155,7 @@ public class ReceptionistController {
 		 }
 		return appointments; 
 	 }
-	 @PostMapping
+	 @PostMapping("/cancelforoneDoctor")
 	 public void cancelForOneDoc(@RequestBody DoctorLeave doctorLeave) throws ResourceNotFoundException{
 		 List<Appointment> appointments = appointmentService.getAppointmentByDate(doctorLeave.getLeaveDate());
 		 for(Appointment appointmentL:appointments) {
