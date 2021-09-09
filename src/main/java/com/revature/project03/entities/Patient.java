@@ -34,6 +34,7 @@ import lombok.ToString;
 public class Patient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	private int p_id;
 	private String userName;
 	private String password;
@@ -43,6 +44,7 @@ public class Patient {
 	private String gender;
 	private String mobileNo;
 	private String address;
+	@Column(name = "email_id")
 	private String email;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy = "patient")
