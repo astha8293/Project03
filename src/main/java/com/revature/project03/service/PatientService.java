@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.project03.entities.Family;
+import com.revature.project03.entities.LoginRoute;
 import com.revature.project03.entities.Patient;
 import com.revature.project03.exception.ResourceNotFoundException;
 import com.revature.project03.repository.FamilyRepository;
+import com.revature.project03.repository.LoginRouteRepository;
 import com.revature.project03.repository.PatientRepository;
 @Service
 public class PatientService {
@@ -17,6 +19,10 @@ public class PatientService {
 	private PatientRepository patientRepository;
 	@Autowired
 	private FamilyRepository familyRepository;
+	@Autowired
+	private LoginRouteService loginrouteService;
+	@Autowired
+	private LoginRouteRepository loginrouteRepository;
 	
 	public Patient findbyEmail(String email) {
 		return patientRepository.findByEmail(email);
@@ -90,6 +96,12 @@ public class PatientService {
         patient.setAge(patientDetails.getAge());
         patient.setAddress(patientDetails.getAddress());
         patient.setMobileNo(patientDetails.getMobileNo());
+        LoginRoute lr = loginrouteService.findbyEmail(patientDetails.getEmail());
+        lr.setPasswd(patientDetails.getPassword());
+        lr.setRole(lr.getRole());
+        lr.setUserEmail(lr.getUserEmail());
+        lr.setRouteId(lr.getRouteId());
+        loginrouteRepository.save(lr);
         final Patient updatedPatient = patientRepository.save(patient);
         return updatedPatient;
     }
